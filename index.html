@@ -1,52 +1,233 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Project</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Linko-sketch</title>
 
-  <link rel="stylesheet" href="bower_components/angular-ui-notification/dist/angular-ui-notification.min.css">
+    <!-- CSS  -->
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css"  media="screen,projection"/>
-  
-<!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <!--<link rel="stylesheet" href="app.css">-->
-
+    <style>
+        .svg-border {
+            border: 3px solid;
+            border-color: #9e9e9e;
+            border-radius: 15px;
+        }
+    </style>
 </head>
+
 <body>
 
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
+    <nav class="teal" role="navigation">
+        <div class="nav-wrapper container">
+          <a id="logo-container" href="#" class="brand-logo">Linko-sketch</a>
+        </div>
+    </nav>
 
-  <div ng-view></div>
 
-  
+    <div class="container">
+        <div class="section">
+          <h2 class="header teal-text">About</h2>
+          <p>
+            Maybe some words you'd like to share..
+          </p>
+          <p>
+            <b>Email</b>: mia@miatedjosaputro.com
+            <br>
+            <b>Website</b>: <a href="http://miatedjosaputro.com">http://miatedjosaputro.com</a>
+          </p>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="app.js"></script>
-  <script src="view1/view1.js"></script>
-  <script src="view2/view2.js"></script>
-  <script src="bower_components/materialize/dist/js/materialize.min.js"></script>
-  <script src="bower_components/js-xlsx/dist/xlsx.core.min.js"></script>
-  <script src="bower_components/angular-js-xlsx/angular-js-xlsx.js"></script>
-  <script src="bower_components/angular-ui-notification/dist/angular-ui-notification.min.js"></script>
-  <script src="bower_components/paper/dist/paper-core.min.js"></script>
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
+        </div>
+        <div class="section">
+            <h2 class="header teal-text">Step 1. Choose your input file</h2>
+            <p>
+                Upload the csv file and check its content in the table below
+            </p>
+            <div class="row">
+                <div class="col s12">
+                    <form action="#">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>File</span>
+                                <input type="file" name="file" id="fileupload">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Please upload a .csv file">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col s12">
+                    <table class="highlight" id="csvTable">
+                        <thead>
+                            <tr>
+                                <th data-field="id">NUMBER</th>
+                                <th data-field="name">UTTERANCE</th>
+                                <th data-field="price">LINKS</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section">
+                <h2 class="header teal-text">Step 2. Choose your parameters</h2>
+                <p>
+                    After adjusting the parameters, tap the "Render" button and scroll the page to check the sample output. If you are satisfied with the output, tap the "Process to PNG" button to process the sample output to a image file, then you can right click the image to save it.
+                </p>
+                <div class="row">
+                    <div class="col s2">
+                        <label for="">Line Colour</label>
+                        <form action="#">
+                            <p>
+                                <input name="group1" type="radio" id="test1" value="#000000" />
+                                <label for="test1">Black</label>
+                            </p>
+                            <p>
+                                <input name="group1" type="radio" id="test2" value="#9e9e9e" />
+                                <label for="test2">Grey</label>
+                            </p>
+
+                            <p>
+                                <input checked name="group1" type="radio" id="test3" value="#eeeeee" />
+                                <label for="test3">Light Grey</label>
+                            </p>
+                            <p>
+                                <input name="group1" type="radio" id="test4" value="#81d4fa" />
+                                <label for="test4">Light Blue</label>
+                            </p>
+
+                        </form>
+
+                    </div>
+                    <div class="col s4">
+                        <label for="">Dots size</label>
+                        <br>
+                        <p class="range-field">
+                            <input value="4" type="range" id="dot_size" min="0" max="10" />
+                        </p>
+                        <!-- <br> -->
+                        <label for="">Dots range</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="dots_from" type="text" class="validate">
+                                <label for="first_name">From</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="dots_to" type="text" class="validate">
+                                <label for="last_name">To</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s6">
+                        <label for="">Other options</label>
+                        <p>
+                            <input type="checkbox" id="white_background" checked="checked" value="white_background"/>
+                            <label for="white_background">White Background</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="utterance" checked="checked" value="utterance"/>
+                            <label for="utterance">Utterance</label>
+                        </p>
+                        <label for="">Render</label>
+                        <br>
+                        <a id="renderBtn" class="waves-effect waves-light btn">Render</a>
+                        <!-- <a download='FileName' id="downloadBtn" class="waves-effect waves-light btn" href="">Download</a> -->
+                        <a id="clearBtn" class="waves-effect waves-light btn red">Clear</a>
+                    </div>
+                </div>
+
+
+                <h5 class="teal-text">Output</h5>
+                <div class="row">
+                    <img id="png"></img>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="jquery-csv-master/src/jquery.csv.min.js"></script>
+    <!--  Scripts-->
+    <script src="Snap.svg-0.4.1/dist/snap.svg-min.js"></script>
+    <script src="SVG.toDataURL-master/svg_todataurl.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/save_to_PNG.js"></script>
+    <script src="js/clear.js"></script>
+    <script src="js/copy.js"></script>
+    <!-- <script src="js/download.js"></script> -->
+    <script>
+        //        $('#fileupload').bind('fileuploadprogressall', function (e, data) {alert("Message","Title")});
+        //        console.log($('#fileupload'));
+        var content;
+        window.onload = function() {
+
+            // $.csv.toArrays
+            document.getElementById("renderBtn").onclick = render;
+            document.getElementById("clearBtn").onclick = clear;
+            document.getElementById("renderBtn").addEventListener("click", function() {
+                copyToClipboard();
+            });
+            document.getElementById("fileupload").onchange = function() {
+                var file = this.files[0];
+
+                var read = new FileReader();
+                read.readAsBinaryString(file);
+
+                read.onloadend = function() {
+
+                    content = $.csv.toArrays(read.result);
+
+                    // build table
+                    var length = Math.min(5, content.length);
+
+                    var table_ontent = '';
+                    for (var i = 1; i < length + 1; i++) {
+                        table_ontent += '<tr>';
+                        table_ontent += '<td>' + content[i][0] + '</td>';
+                        table_ontent += '<td>' + content[i][1] + '</td>';
+                        table_ontent += '<td>' + content[i][2] + '</td>';
+                        table_ontent += '</tr>';
+                    }
+                    table_ontent += '<tr>';
+                    table_ontent += '<td>...</td>';
+                    table_ontent += '<td>...</td>';
+                    table_ontent += '<td>...</td>';
+                    table_ontent += '</tr>';
+                    $('#csvTable tbody').html(table_ontent);
+
+
+                    $("#dots_from").val(1);
+                    $("#dots_from").focus();
+                    $("#dots_to").val(content.length - 1);
+                    $("#dots_to").focus();
+                    $("#dots_to").blur();
+                }
+            }
+
+        }
+    </script>
+
+
+
+
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+
 </body>
+
 </html>
